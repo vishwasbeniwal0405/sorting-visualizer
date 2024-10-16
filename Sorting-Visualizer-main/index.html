@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Sorting Visualizer</title>
+</head>
+
+<body>
+
+    <header>
+        <p class="main-title">Sorting Visualizer</p>
+        <div class="header_right">
+            <button class="btn-prop" id="a_generate">Generate New Array</button>
+        </div>
+    </header>
+
+    <!-- Moved array size and algorithm speed to the top-right corner -->
+    <div class="array-inputs">
+        <p>Array Size:</p>
+        <input id="a_size" type="range" min="10" max="70" step="1" value="20">
+        <p>Algorithm Speed:</p>
+        <input id="a_speed" type="range" min="1" max="10" step="1" value="4">
+    </div>
+
+    <!-- Algos moved to the bottom of the page -->
+    
+
+    <section>
+        <div id="array_container"></div>
+    </section>
+
+    <div class="algos" id="algoButtonsContainer">
+        <button class="algo-btn">Bubble</button>
+        <button class="algo-btn">Selection</button>
+        <button class="algo-btn">Insertion</button>
+        <button class="algo-btn">Merge</button>
+        <button class="algo-btn">Quick</button>
+        <button class="algo-btn">Heap</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var algoButtons = document.querySelectorAll('.algo-btn');
+            algoButtons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var algorithm = this.textContent.toLowerCase();
+                    visualizeAlgorithm(algorithm);
+                });
+            });
+
+            function visualizeAlgorithm(algorithm) {
+                console.log('Visualizing ' + algorithm + ' sort...');
+            }
+        });
+    </script>
+
+    <script src="./js/main.js"></script>
+    <script src="./js/visualizations.js"></script>
+    <script src="./js/bubble_sort.js"></script>
+    <script src="./js/selection_sort.js"></script>
+    <script src="./js/insertion_sort.js"></script>
+    <script src="./js/merge_sort.js"></script>
+    <script src="./js/quick_sort.js"></script>
+    <script src="./js/heap_sort.js"></script>
+
+</body>
+
+</html>
